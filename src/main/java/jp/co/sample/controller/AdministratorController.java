@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -89,9 +90,10 @@ public class AdministratorController {
 	@RequestMapping("/login")
 	public String login(LoginForm form, BindingResult resultOfErrorMessage, Model model) {
 		Administrator administrator = service.login(form.getMailAddress(), form.getPassword());
-		resultOfErrorMessage.resolveMessageCodes("メールアドレスまたはパスワードが不正です");
+		FieldError fieldError = new FieldError(resultOfErrorMessage.getObjectName(), "mailAddress", "メールアドレスまたはパスワードが不正です");
+		resultOfErrorMessage.addError(fieldError);
 		if(Objects.equals(administrator, null)) {
-			model.addAttribute("resultOfErrorMessage", resultOfErrorMessage);
+			model.addAttribute("mailAddress", resultOfErrorMessage);
 			return toLogin();
 		}
 		session.setAttribute("administratorName", administrator.getName());
