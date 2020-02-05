@@ -85,7 +85,7 @@ public class AdministratorController {
 	 * @param form ログイン画面から情報を受け取ったフォーム
 	 * @param resultOfErrorMessage ログイン失敗時に記載されるエラーメッセージ
 	 * @param model リクエストスコープ
-	 * @return ログイン失敗ならばログイン画面に戻る、成功ならば従業員リスト画面にフォワード
+	 * @return ログイン失敗ならばログイン画面に戻る、成功ならば従業員リスト画面にリダイレクト
 	 */
 	@RequestMapping("/login")
 	public String login(LoginForm form, BindingResult resultOfErrorMessage, Model model) {
@@ -98,6 +98,18 @@ public class AdministratorController {
 		}
 		session.setAttribute("administratorName", administrator.getName());
 		return "redirect:/employee/showList";
+	}
+	
+	/**
+	 * ログアウトしてログイン画面にリダイレクトするメソッド.
+	 * セッションスコープ情報をクリアする
+	 * 
+	 * @return ログイン画面
+	 */
+	@RequestMapping("/logout")
+	public String logout() {
+		session.invalidate();
+		return "redirect:/";
 	}
 
 }
