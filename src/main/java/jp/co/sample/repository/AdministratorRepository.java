@@ -60,7 +60,12 @@ public class AdministratorRepository {
 	 */
 	public void insert(Administrator administrator) {
 		SqlParameterSource param = new BeanPropertySqlParameterSource(administrator);
-		insert.executeAndReturnKey(param);
+		try {
+			insert.executeAndReturnKey(param);
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			
+		}
 	}
 	
 	/**
