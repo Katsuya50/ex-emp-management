@@ -8,7 +8,7 @@ import jp.co.sample.domain.Administrator;
 import jp.co.sample.repository.AdministratorRepository;
 
 /**
- * 管理者用serviceクラス.
+ * 管理者情報処理のserviceクラス.
  * 
  * @author katsuya.fujishima
  *
