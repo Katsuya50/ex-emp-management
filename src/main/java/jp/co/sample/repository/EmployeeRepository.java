@@ -80,8 +80,9 @@ public class EmployeeRepository {
 	 * @param employee 従業員情報のドメイン
 	 */
 	public void update(Employee employee) {
-		String sql = "UPDATE " + TABLE_NAME + " SET dependents_count = :dependentsCount";
-		SqlParameterSource param = new MapSqlParameterSource().addValue("dependentsCount", employee.getDependentsCount());
+		String sql = "UPDATE " + TABLE_NAME + " SET dependents_count = :dependentsCount WHERE id = :id";
+		SqlParameterSource param = new MapSqlParameterSource()
+				.addValue("dependentsCount", employee.getDependentsCount()).addValue("id", employee.getId());
 		template.update(sql, param);
 	}
 
