@@ -22,6 +22,11 @@ public class EmployeeService {
 	@Autowired
 	private EmployeeRepository repository;
 	
+	/**
+	 * 従業員リストを取得する処理.
+	 * 
+	 * @return 従業員リスト
+	 */
 	public List<Employee> showList() {
 		List<Employee> employeeList = repository.findAll();
 		return employeeList;
