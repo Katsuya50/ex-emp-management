@@ -11,9 +11,13 @@ package jp.co.sample.form;
 public class InsertAdministratorForm {
 	
 	
+	/** 管理者氏名 */
 	private String name;
+	/** 管理者メールアドレス */
 	private String mailAddress;
+	/** 管理者パスワード */
 	private String password;
+	
 	public String getName() {
 		return name;
 	}
