@@ -75,7 +75,7 @@ public class EmployeeRepository {
 	}
 	
 	/**
-	 *  idが一致した従業員の不要人数を変更するメソッド.
+	 *  idが一致した従業員の扶養人数を変更するメソッド.
 	 * 
 	 * @param employee 従業員情報のドメイン
 	 */
