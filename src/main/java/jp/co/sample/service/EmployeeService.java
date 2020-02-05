@@ -33,7 +33,7 @@ public class EmployeeService {
 	}
 	
 	/**
-	 * idに一致する従業員情報を取得する処理
+	 * idに一致する従業員情報を取得する処理.
 	 * 
 	 * @param id 従業員ID
 	 * @return 従業員情報
@@ -43,7 +43,7 @@ public class EmployeeService {
 	}
 	
 	/**
-	 * 従業員の扶養人数を更新する処理
+	 * 従業員の扶養人数を更新する処理.
 	 * 
 	 * @param employee　従業員情報
 	 */
