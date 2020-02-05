@@ -33,7 +33,7 @@ public class EmployeeRepository {
 		Employee employee = new Employee();
 		employee.setId(rs.getInt("id"));
 		employee.setName(rs.getString("name"));
-		employee.setImage(rs.getString("iamge"));
+		employee.setImage(rs.getString("image"));
 		employee.setGender(rs.getString("gender"));
 		employee.setHireDate(rs.getDate("hire_date"));
 		employee.setMailAddress(rs.getString("mail_address"));
@@ -52,7 +52,7 @@ public class EmployeeRepository {
 	 * @return 従業員情報のリスト
 	 */
 	public List<Employee> findAll() {
-		String sql = "SELECT id, name, iamge, gender, hire_date, mail_address, zip_code, address, "
+		String sql = "SELECT id, name, image, gender, hire_date, mail_address, zip_code, address, "
 					+ "telephone, salary, characteristics, dependents_count "
 					+ "FROM " + TABLE_NAME + " ORDER BY hire_date";
 		List<Employee> employeeList = template.query(sql, EMPLOYEE_ROW_MAPPER);
@@ -66,7 +66,7 @@ public class EmployeeRepository {
 	 * @return 従業員情報のドメイン
 	 */
 	public Employee load(Integer id) {
-		String sql = "SELECT id, name, iamge, gender, hire_date, mail_address, zip_code, address, "
+		String sql = "SELECT id, name, image, gender, hire_date, mail_address, zip_code, address, "
 				+ "telephone, salary, characteristics, dependents_count "
 				+ "FROM " + TABLE_NAME + " WHERE id = :id";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
