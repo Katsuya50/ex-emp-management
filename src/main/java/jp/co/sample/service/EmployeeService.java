@@ -42,4 +42,13 @@ public class EmployeeService {
 		return repository.load(id);
 	}
 	
+	/**
+	 * 従業員の扶養人数を更新する処理
+	 * 
+	 * @param employee　従業員情報
+	 */
+	public void update(Employee employee) {
+		repository.update(employee);
+	}
+	
 }
