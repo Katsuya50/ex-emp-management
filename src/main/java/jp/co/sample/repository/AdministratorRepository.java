@@ -1,5 +1,7 @@
 package jp.co.sample.repository;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,8 +75,11 @@ public class AdministratorRepository {
 					+ " WHERE mail_address = :mailAddress AND password = :password";
 		SqlParameterSource param = new MapSqlParameterSource()
 				.addValue("mailAddress", mailAddress).addValue("password", password);
-		Administrator administrator = template.queryForObject(sql, param, ADMINISTRATOR_ROW_MAPPER);
-		return administrator;
+		List<Administrator> administratorList = template.query(sql, param, ADMINISTRATOR_ROW_MAPPER);
+		if(administratorList.size() == 0) {
+			return null;
+		}
+		return administratorList.get(0);
 	}
 
 }
