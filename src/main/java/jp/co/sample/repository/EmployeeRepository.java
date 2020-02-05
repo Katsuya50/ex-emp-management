@@ -46,7 +46,11 @@ public class EmployeeRepository {
 		return employee;
 	};
 	
-	/** テーブル内の従業員情報を全て返すメソッド */
+	/**
+	 *  テーブル内の従業員情報を全て返すメソッド
+	 * 
+	 * @return 従業員情報のリスト
+	 */
 	public List<Employee> findAll() {
 		String sql = "SELECT id, name, iamge, gender, hire_date, mail_address, zip_code, address, "
 					+ "telephone, salary, characteristics, dependents_count "
@@ -55,7 +59,12 @@ public class EmployeeRepository {
 		return employeeList;
 	}
 	
-	/** idが一致した従業員情報を返すメソッド */
+	/**
+	 *  idが一致した従業員情報を返すメソッド
+	 * 
+	 * @param id 従業員id
+	 * @return 従業員情報のドメイン
+	 */
 	public Employee load(Integer id) {
 		String sql = "SELECT id, name, iamge, gender, hire_date, mail_address, zip_code, address, "
 				+ "telephone, salary, characteristics, dependents_count "
@@ -65,7 +74,11 @@ public class EmployeeRepository {
 		return employee;
 	}
 	
-	/** idが一致した従業員の不要人数を変更するメソッド */
+	/**
+	 *  idが一致した従業員の不要人数を変更するメソッド
+	 * 
+	 * @param employee 従業員情報のドメイン
+	 */
 	public void update(Employee employee) {
 		String sql = "UPDATE " + TABLE_NAME + " SET dependents_count = :dependentsCount";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("dependentsCount", employee.getDependentsCount());

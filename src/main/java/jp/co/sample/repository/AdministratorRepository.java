@@ -51,13 +51,23 @@ public class AdministratorRepository {
 		insert = withTableName.usingGeneratedKeyColumns("id");
 	}
 	
-	/** 自動採番してテーブルに行を挿入するメソッド */
+	/**
+	 * 自動採番してテーブルに行を挿入するメソッド
+	 * 
+	 * @param administrator 管理者用ドメイン
+	 */
 	public void insert(Administrator administrator) {
 		SqlParameterSource param = new BeanPropertySqlParameterSource(administrator);
 		insert.executeAndReturnKey(param);
 	}
 	
-	/** メールアドレスとパスワードが一致した管理者情報を返すメソッド */
+	/**
+	 * メールアドレスとパスワードが一致した管理者情報を返すメソッド
+	 * 
+	 * @param mailAddress 管理者メールアドレス
+	 * @param password 管理者パスワード
+	 * @return 管理者情報のドメイン
+	 */
 	public Administrator findByMailAddressAndPassWord(String mailAddress, String password) {
 		String sql = "SELECT id, name, mail_address, password FROM " + TABLE_NAME
 					+ " WHERE mail_address = :mailAddress AND password = :password";
