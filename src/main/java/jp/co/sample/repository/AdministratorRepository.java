@@ -32,7 +32,7 @@ public class AdministratorRepository {
 	/** JDBC操作に使用するテーブル名 */
 	private static final String TABLE_NAME = "administrators";
 	
-	/** JDBC操作で取得した行をAdministratorドメインに詰めて返すオブジェクト */
+	/** Administratorオブジェクトを生成するローマッパー */
 	private static final RowMapper<Administrator> ADMINISTRATOR_ROW_MAPPER = (rs, i) -> {
 		Administrator administrator = new Administrator();
 		administrator.setId(rs.getInt("id"));

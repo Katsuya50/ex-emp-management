@@ -28,7 +28,7 @@ public class EmployeeRepository {
 	/** JDBC操作に使用するテーブル名 */
 	private static final String TABLE_NAME = "employees";
 	
-	/** JDBC操作で取得した行をEmployeeドメインに詰めて返すオブジェクト */
+	/** Employeeオブジェクトを生成するローマッパー */
 	private static final RowMapper<Employee> EMPLOYEE_ROW_MAPPER = (rs, i) -> {
 		Employee employee = new Employee();
 		employee.setId(rs.getInt("id"));
