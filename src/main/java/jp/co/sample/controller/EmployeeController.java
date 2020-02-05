@@ -44,11 +44,11 @@ public class EmployeeController {
 	}
 	
 	/**
-	 * idに一致する従業員情報をリクエストスコープに格納して詳細画面にフォワードするメソッド.
+	 * idに一致する従業員の詳細画面にフォワードするメソッド.
 	 * 
-	 * @param id
-	 * @param model
-	 * @return
+	 * @param id 従業員ID
+	 * @param model リクエストスコープ
+	 * @return 従業員詳細画面
 	 */
 	@RequestMapping("/showDetail")
 	public String showDetail(String id, Model model) {
