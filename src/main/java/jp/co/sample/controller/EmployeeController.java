@@ -56,6 +56,12 @@ public class EmployeeController {
 		return "/employee/detail";
 	}
 	
+	/**
+	 * 従業員の扶養人数を更新し従業員リスト画面にリダイレクトするメソッド.
+	 * 
+	 * @param form 更新する従業員の情報を受け取ったform
+	 * @return 従業員リスト画面にリダイレクト
+	 */
 	@RequestMapping("/update")
 	public String update(UpdateEmployeeForm form) {
 		Employee employee = new Employee();
