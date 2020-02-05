@@ -15,9 +15,9 @@ import org.springframework.stereotype.Repository;
 import jp.co.sample.domain.Administrator;
 
 /**
- * administratorsテーブルを操作するリポジトリ
+ * administratorsテーブルを操作するリポジトリ.
  * 
- * @author blues
+ * @author katsuya.fujishima
  *
  */
 @Repository
@@ -52,7 +52,7 @@ public class AdministratorRepository {
 	}
 	
 	/**
-	 * 自動採番してテーブルに行を挿入するメソッド
+	 * 自動採番してテーブルに行を挿入するメソッド.
 	 * 
 	 * @param administrator 管理者用ドメイン
 	 */
@@ -62,7 +62,7 @@ public class AdministratorRepository {
 	}
 	
 	/**
-	 * メールアドレスとパスワードが一致した管理者情報を返すメソッド
+	 * メールアドレスとパスワードが一致した管理者情報を返すメソッド.
 	 * 
 	 * @param mailAddress 管理者メールアドレス
 	 * @param password 管理者パスワード

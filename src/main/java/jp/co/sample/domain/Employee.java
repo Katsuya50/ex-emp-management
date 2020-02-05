@@ -3,9 +3,9 @@ package jp.co.sample.domain;
 import java.util.Date;
 
 /**
- * 従業員のドメイン
+ * 従業員のドメイン.
  * 
- * @author blues
+ * @author katsuya.fujishima
  *
  */
 public class Employee {

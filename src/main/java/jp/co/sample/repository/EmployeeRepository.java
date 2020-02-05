@@ -13,9 +13,9 @@ import org.springframework.stereotype.Repository;
 import jp.co.sample.domain.Employee;
 
 /**
- * employeesテーブルを操作するリポジトリ
+ * employeesテーブルを操作するリポジトリ.
  * 
- * @author blues
+ * @author katsuya.fujishima
  *
  */
 @Repository
@@ -47,7 +47,7 @@ public class EmployeeRepository {
 	};
 	
 	/**
-	 *  テーブル内の従業員情報を全て返すメソッド
+	 *  テーブル内の従業員情報を全て返すメソッド.
 	 * 
 	 * @return 従業員情報のリスト
 	 */
@@ -60,7 +60,7 @@ public class EmployeeRepository {
 	}
 	
 	/**
-	 *  idが一致した従業員情報を返すメソッド
+	 *  idが一致した従業員情報を返すメソッド.
 	 * 
 	 * @param id 従業員id
 	 * @return 従業員情報のドメイン
@@ -75,7 +75,7 @@ public class EmployeeRepository {
 	}
 	
 	/**
-	 *  idが一致した従業員の不要人数を変更するメソッド
+	 *  idが一致した従業員の不要人数を変更するメソッド.
 	 * 
 	 * @param employee 従業員情報のドメイン
 	 */

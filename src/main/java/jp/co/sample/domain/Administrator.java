@@ -1,9 +1,9 @@
 package jp.co.sample.domain;
 
 /**
- * 管理者のドメイン
+ * 管理者のドメイン.
  * 
- * @author blues
+ * @author katsuya.fujishima
  *
  */
 public class Administrator {

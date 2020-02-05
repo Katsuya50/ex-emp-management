@@ -1,11 +1,11 @@
 package jp.co.sample.form;
 
 /**
- * 管理者情報Insert用Formクラス
+ * 管理者情報Insert用Formクラス.
  * 
  * 管理者情報を挿入する際にフォームに記入された情報を受け取るクラス
  * 
- * @author blues
+ * @author katsuya.fujishima
  *
  */
 public class InsertAdministratorForm {

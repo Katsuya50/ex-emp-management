@@ -11,7 +11,7 @@ import jp.co.sample.service.AdministratorService;
 /**
  * 従業員情報の処理制御クラス.
  * 
- * @author blues
+ * @author katsuya.fujishima
  *
  */
 @Controller
