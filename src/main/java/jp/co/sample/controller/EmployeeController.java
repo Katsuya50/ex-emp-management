@@ -87,6 +87,7 @@ public class EmployeeController {
 		application.setAttribute("allOfDividedEmployeeLists", allOfDividedEmployeeLists);
 		model.addAttribute("dividedEmployeeList", allOfDividedEmployeeLists.get(0));
 		model.addAttribute("index", 0);
+		model.addAttribute("size", allOfDividedEmployeeLists.size());
 		return "/employee/lists";
 	}
 	
@@ -101,6 +102,7 @@ public class EmployeeController {
 		List<List<Employee>> allOfDividedEmployeeLists = (List<List<Employee>>) application.getAttribute("allOfDividedEmployeeLists");
 		model.addAttribute("dividedEmployeeList", allOfDividedEmployeeLists.get(index));
 		model.addAttribute("index", index);
+		model.addAttribute("size", allOfDividedEmployeeLists.size());
 		return "/employee/lists";
 	}
 

@@ -98,7 +98,7 @@ public class EmployeeRepository {
 					+ "LIMIT :rows OFFSET :offsetRows";
 		List<List<Employee>> allOfDividedEmployeeLists = new ArrayList<>();
 		List<Employee> employeeList = findAll();
-		for(int i = 0; i < employeeList.size() + 10; i += 10) {
+		for(int i = 0; i < employeeList.size(); i += 10) {
 			SqlParameterSource param = new MapSqlParameterSource()
 					.addValue("rows", 10).addValue("offsetRows", i);
 			List<Employee> dividedEmployeeList = template.query(sql, param, EMPLOYEE_ROW_MAPPER);

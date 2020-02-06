@@ -70,7 +70,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="employee:${employeeList}">
+						<tr th:each="employee:${dividedEmployeeList}">
 							<td>
 								<a href="detail.html" th:href="@{'/employee/showDetail?id='+${employee.id}}">
 									<span th:text="${employee.name}">山田太郎</span>
@@ -86,6 +86,17 @@
 					</tbody>
 					<tfoot>
 						<tr>
+							<td></td>
+							<td>
+								<span th:each="list,status:${application.allOfDividedEmployeeLists}">
+									<a href="lists.html" th:href="@{'/employee/showLists?index='+${status.index}}">
+										<span th:text="${status.count}">1</span>
+									</a>
+									<span th:unless="${status.last}">・</span>
+								</span>
+							</td>
+							<td></td>
+						</tr>
 					</tfoot>
 				</table>
 				
