@@ -43,12 +43,12 @@ public class AdministratorService {
 	}
 	
 	/**
-	 * 管理者登録済メールアドレスを参照する処理.
+	 * 登録済管理者情報を参照する処理.
 	 * 
-	 * @return 管理者登録済メールアドレスリスト
+	 * @return 登録済管理者リスト
 	 */
-	public List<Administrator> findAllOfMailAddress() {
-		return repository.findAllOfMailAddress();
+	public List<Administrator> findAll() {
+		return repository.findAll();
 	}
 	
 }

@@ -71,7 +71,7 @@ public class AdministratorController {
 		BeanUtils.copyProperties(form, administrator);
 		
 		//入力されたメールアドレスが登録済かを検証、登録済であればエラー
-		for(Administrator ad: service.findAllOfMailAddress()) {
+		for(Administrator ad: service.findAll()) {
 			if(administrator.getMailAddress().equals(ad.getMailAddress())) {
 				FieldError fieldError = new FieldError(
 						result.getObjectName(), "mailAddress", "入力されたメールアドレスは登録済のため使用できません");
