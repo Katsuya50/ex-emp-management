@@ -77,14 +77,30 @@ public class EmployeeController {
 	}
 	
 	/**
-	 * 分割された従業員リストをアプリケーションスコープに格納して従業員リスト画面にフォワードするメソッド.
+	 * 分割された従業員リストをアプリケーションスコープに格納して従業員リスト画面ページ1にフォワードするメソッド.
+	 * 
+	 * @return 従業員リスト画面ページ1
+	 */
+	@RequestMapping("/showList1")
+	public String showDividedList1(Model model) {
+		List<List<Employee>> allOfDividedEmployeeLists = service.showDividedLists();
+		application.setAttribute("allOfDividedEmployeeLists", allOfDividedEmployeeLists);
+		model.addAttribute("dividedEmployeeList", allOfDividedEmployeeLists.get(0));
+		model.addAttribute("index", 0);
+		return "/employee/lists";
+	}
+	
+	/**
+	 * 送られてきたインデックスに応じた従業員リスト画面にフォワードするメソッド.
 	 * 
 	 * @return 従業員リスト画面
 	 */
+	@SuppressWarnings("unchecked")
 	@RequestMapping("/showLists")
-	public String showDividedLists() {
-		List<List<Employee>> allOfDividedEmployeeLists = service.showDividedLists();
-		application.setAttribute("allOfDividedEmployeeLists", allOfDividedEmployeeLists);
+	public String showDividedLists(int index, Model model) {
+		List<List<Employee>> allOfDividedEmployeeLists = (List<List<Employee>>) application.getAttribute("allOfDividedEmployeeLists");
+		model.addAttribute("dividedEmployeeList", allOfDividedEmployeeLists.get(index));
+		model.addAttribute("index", index);
 		return "/employee/lists";
 	}
 
