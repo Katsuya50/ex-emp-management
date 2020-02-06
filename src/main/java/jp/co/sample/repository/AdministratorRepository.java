@@ -82,10 +82,17 @@ public class AdministratorRepository {
 		return administratorList.get(0);
 	}
 	
+	/**
+	 * 全件のメールアドレス検索メソッド.
+	 * 
+	 * 登録メールアドレスが一意かをチェックするのに使用する
+	 * 
+	 * @return メールアドレスの情報のみを含んだ管理者リスト
+	 */
 	public List<Administrator> findAllOfmailAddress() {
 		String sql = "SELECT mail_address FROM " + TABLE_NAME + " ORDER BY id";
-		List<Administrator> administratorList = template.query(sql, ADMINISTRATOR_ROW_MAPPER);
-		return administratorList;
+		List<Administrator> allOfMailList = template.query(sql, ADMINISTRATOR_ROW_MAPPER);
+		return allOfMailList;
 	}
 
 }
