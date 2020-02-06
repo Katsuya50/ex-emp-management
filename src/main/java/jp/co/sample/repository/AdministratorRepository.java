@@ -81,5 +81,11 @@ public class AdministratorRepository {
 		}
 		return administratorList.get(0);
 	}
+	
+	public List<Administrator> findAllOfmailAddress() {
+		String sql = "SELECT mail_address FROM " + TABLE_NAME + " ORDER BY id";
+		List<Administrator> administratorList = template.query(sql, ADMINISTRATOR_ROW_MAPPER);
+		return administratorList;
+	}
 
 }
