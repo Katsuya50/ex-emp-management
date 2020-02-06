@@ -63,12 +63,24 @@ public class AdministratorController {
 	 * @return ログイン画面
 	 */
 	@RequestMapping("/insert")
-	public String insert(@Validated InsertAdministratorForm form, BindingResult result) {
+	public String insert(@Validated InsertAdministratorForm form, BindingResult result, Model model) {
 		if(result.hasErrors()) {
 			return "administrator/insert";
 		}
 		Administrator administrator = new Administrator();
 		BeanUtils.copyProperties(form, administrator);
+		
+		//入力されたメールアドレスが登録済かを検証、登録済であればエラー
+		for(Administrator ad: service.findAllOfmailAddress()) {
+			if(administrator.getMailAddress().equals(ad.getMailAddress())) {
+				FieldError fieldError = new FieldError(
+						result.getObjectName(), "mailAddress", "入力されたメールアドレスは登録済のため使用できません");
+				result.addError(fieldError);
+				model.addAttribute("mailAddress", result);
+				return "administrator/insert";
+			}
+		}
+		
 		service.insert(administrator);
 		return "redirect:/";
 	}
