@@ -89,7 +89,7 @@ public class AdministratorRepository {
 	 * 
 	 * @return メールアドレスの情報のみを含んだ管理者リスト
 	 */
-	public List<Administrator> findAllOfmailAddress() {
+	public List<Administrator> findAllOfMailAddress() {
 		String sql = "SELECT mail_address FROM " + TABLE_NAME + " ORDER BY id";
 		List<Administrator> AdministratorList = template.query(sql, ADMINISTRATOR_ROW_MAPPER);
 		return AdministratorList;

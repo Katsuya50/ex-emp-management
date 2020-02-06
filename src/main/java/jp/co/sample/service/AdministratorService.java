@@ -47,8 +47,8 @@ public class AdministratorService {
 	 * 
 	 * @return 管理者登録済メールアドレスリスト
 	 */
-	public List<Administrator> findAllOfmailAddress() {
-		return repository.findAllOfmailAddress();
+	public List<Administrator> findAllOfMailAddress() {
+		return repository.findAllOfMailAddress();
 	}
 	
 }
