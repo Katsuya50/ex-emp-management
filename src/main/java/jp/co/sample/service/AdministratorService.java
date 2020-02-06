@@ -1,5 +1,7 @@
 package jp.co.sample.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,6 +40,15 @@ public class AdministratorService {
 	 */
 	public Administrator login(String mailAddress, String password) {
 		return repository.findByMailAddressAndPassWord(mailAddress, password);
+	}
+	
+	/**
+	 * 管理者登録済メールアドレスを参照する処理.
+	 * 
+	 * @return 管理者登録済メールアドレスリスト
+	 */
+	public List<Administrator> findAllOfmailAddress() {
+		return repository.findAllOfmailAddress();
 	}
 	
 }
