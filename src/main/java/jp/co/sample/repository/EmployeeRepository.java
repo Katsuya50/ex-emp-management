@@ -87,9 +87,9 @@ public class EmployeeRepository {
 	}
 	
 	/**
-	 * 従業員情報を10件ずつに分けたものをリストにして返すメソッド.
+	 * 従業員情報を分割しリストにして返すメソッド.
 	 * 
-	 * @return 10件ずつに分けた複数のリストの集合
+	 * @return 分割した複数の従業員リストの集合
 	 */
 	public List<List<Employee>> divPar10Rows() {
 		String sql = "SELECT id, name, image, gender, hire_date, mail_address, zip_code, address, "
