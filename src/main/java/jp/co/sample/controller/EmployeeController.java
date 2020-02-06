@@ -2,6 +2,8 @@ package jp.co.sample.controller;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,9 @@ public class EmployeeController {
 	
 	@Autowired
 	private EmployeeService service;
+	
+	@Autowired
+	private ServletContext application;
 	
 	@ModelAttribute
 	public UpdateEmployeeForm setUpUpdateEmployeeForm() {
@@ -69,6 +74,18 @@ public class EmployeeController {
 		employee.setDependentsCount(Integer.parseInt(form.getDependentsCount()));
 		service.update(employee);
 		return "redirect:/employee/showList";
+	}
+	
+	/**
+	 * 分割された従業員リストをアプリケーションスコープに格納して従業員リスト画面にフォワードするメソッド.
+	 * 
+	 * @return 従業員リスト画面
+	 */
+	@RequestMapping("/showLists")
+	public String showDividedLists() {
+		List<List<Employee>> allOfDividedEmployeeLists = service.showDividedLists();
+		application.setAttribute("allOfDividedEmployeeLists", allOfDividedEmployeeLists);
+		return "/employee/lists";
 	}
 
 }
