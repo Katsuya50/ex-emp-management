@@ -51,4 +51,14 @@ public class EmployeeService {
 		repository.update(employee);
 	}
 	
+	/**
+	 * 分割された従業員リストを取得する処理.
+	 * 
+	 * @return 分割された従業員リスト
+	 */
+	public List<List<Employee>> showDividedLists() {
+		List<List<Employee>> allOfDividedEmployeeLists = repository.divPar10Rows();
+		return allOfDividedEmployeeLists;
+	}
+	
 }
