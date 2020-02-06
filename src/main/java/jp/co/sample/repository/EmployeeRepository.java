@@ -1,7 +1,7 @@
 package jp.co.sample.repository;
 
+import java.util.ArrayList;
 import java.util.List;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
@@ -84,6 +84,27 @@ public class EmployeeRepository {
 		SqlParameterSource param = new MapSqlParameterSource()
 				.addValue("dependentsCount", employee.getDependentsCount()).addValue("id", employee.getId());
 		template.update(sql, param);
+	}
+	
+	/**
+	 * 従業員情報を10件ずつに分けたものをリストにして返すメソッド.
+	 * 
+	 * @return 10件ずつに分けた複数のリストの集合
+	 */
+	public List<List<Employee>> devPar10Rows() {
+		String sql = "SELECT id, name, image, gender, hire_date, mail_address, zip_code, address, "
+					+ "telephone, salary, characteristics, dependents_count "
+					+ "FROM " + TABLE_NAME + " ORDER BY id "
+					+ "LIMIT :rows OFFSET :offsetRows";
+		List<List<Employee>> allOfDevidedEmployeeLists = new ArrayList<>();
+		List<Employee> employeeList = findAll();
+		for(int i = 0; i < employeeList.size() + 10; i += 10) {
+			SqlParameterSource param = new MapSqlParameterSource()
+					.addValue("rows", 10).addValue("offsetRows", i);
+			List<Employee> devidedEmployeeList = template.query(sql, param, EMPLOYEE_ROW_MAPPER);
+			allOfDevidedEmployeeLists.add(devidedEmployeeList);
+		}
+		return allOfDevidedEmployeeLists;
 	}
 
 }
