@@ -56,14 +56,14 @@ public class AdministratorController {
 	}
 	
 	/**
-	 * 管理者情報登録メソッド.
-	 * administratorsテーブルに新しく行を挿入する
+	 * 管理者情報登録確認メソッド.
+	 * 入力された登録情報を確認する画面にフォワード
 	 * 
 	 * @param form 挿入する情報を受け取ったform
-	 * @return ログイン画面
+	 * @return 登録確認画面
 	 */
-	@RequestMapping("/insert")
-	public String insert(@Validated InsertAdministratorForm form, BindingResult result, Model model) {
+	@RequestMapping("/confirm")
+	public String confirm(@Validated InsertAdministratorForm form, BindingResult result, Model model) {
 		if(result.hasErrors()) {
 			return "administrator/insert";
 		}
@@ -82,7 +82,7 @@ public class AdministratorController {
 		}
 		
 		service.insert(administrator);
-		return "redirect:/";
+		return "administrator/confirm";
 	}
 	
 	/**
