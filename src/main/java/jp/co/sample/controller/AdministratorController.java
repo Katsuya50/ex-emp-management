@@ -80,6 +80,7 @@ public class AdministratorController {
 				return "administrator/insert";
 			}
 		}
+		model.addAttribute("administrator", administrator);
 		return "administrator/confirm";
 	}
 	
