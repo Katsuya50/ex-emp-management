@@ -56,13 +56,17 @@ public class AdministratorController {
 	}
 	
 	/**
-	 * 管理者情報登録確認メソッド.
-	 * 入力された登録情報を確認する画面にフォワード
+	 * 管理者情報登録完了メソッド.
+	 * 入力値チェックをしたのち
+	 * 管理者情報をadministratorテーブルに挿入し
+	 * 完了ページへフォワード
 	 * 
-	 * @param form 確認する情報を受け取ったform
-	 * @return 登録確認画面
+	 * @param form 挿入する情報を受けとったフォーム
+	 * @param result フォームが受け取った値をチェックする
+	 * @param model リクエストスコープ
+	 * @return 登録完了画面
 	 */
-	@RequestMapping("/confirm")
+	@RequestMapping("/finished")
 	public String confirm(@Validated InsertAdministratorForm form, BindingResult result, Model model) {
 		if(result.hasErrors()) {
 			return "administrator/insert";
@@ -80,21 +84,6 @@ public class AdministratorController {
 				return "administrator/insert";
 			}
 		}
-		model.addAttribute("administrator", administrator);
-		return "administrator/confirm";
-	}
-	
-	/**
-	 * 管理者登録完了メソッド.
-	 * 管理者情報をadministratorテーブルに挿入し完了ページへフォワードフォワード
-	 * 
-	 * @param insertAdministratorForm 挿入する情報を受けとったフォームクラス
-	 * @return 登録完了画面
-	 */
-	@RequestMapping("/finished")
-	public String finished(InsertAdministratorForm insertAdministratorForm) {
-		Administrator administrator = new Administrator();
-		BeanUtils.copyProperties(insertAdministratorForm, administrator);
 		service.insert(administrator);
 		return "/administrator/finished";
 	}
