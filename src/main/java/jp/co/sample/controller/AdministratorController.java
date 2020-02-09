@@ -36,7 +36,7 @@ public class AdministratorController {
 	private HttpSession session;
 	
 	@ModelAttribute
-	public InsertAdministratorForm setUpAdministratorForm() {
+	public InsertAdministratorForm setUpInsertAdministratorForm() {
 		return new InsertAdministratorForm();
 	}
 	
@@ -80,9 +80,15 @@ public class AdministratorController {
 				return "administrator/insert";
 			}
 		}
-		
-		service.insert(administrator);
 		return "administrator/confirm";
+	}
+	
+	@RequestMapping("/finished")
+	public String finished(InsertAdministratorForm insertAdministratorForm) {
+		Administrator administrator = new Administrator();
+		BeanUtils.copyProperties(insertAdministratorForm, administrator);
+		service.insert(administrator);
+		return "/administrator/finished";
 	}
 	
 	/**
