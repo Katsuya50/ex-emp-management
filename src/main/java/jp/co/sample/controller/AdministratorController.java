@@ -59,7 +59,7 @@ public class AdministratorController {
 	 * 管理者情報登録確認メソッド.
 	 * 入力された登録情報を確認する画面にフォワード
 	 * 
-	 * @param form 挿入する情報を受け取ったform
+	 * @param form 確認する情報を受け取ったform
 	 * @return 登録確認画面
 	 */
 	@RequestMapping("/confirm")
@@ -83,6 +83,13 @@ public class AdministratorController {
 		return "administrator/confirm";
 	}
 	
+	/**
+	 * 管理者登録完了メソッド.
+	 * 管理者情報をadministratorテーブルに挿入し完了ページへフォワードフォワード
+	 * 
+	 * @param insertAdministratorForm 挿入する情報を受けとったフォームクラス
+	 * @return 登録完了画面
+	 */
 	@RequestMapping("/finished")
 	public String finished(InsertAdministratorForm insertAdministratorForm) {
 		Administrator administrator = new Administrator();
