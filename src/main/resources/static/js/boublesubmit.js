@@ -1,5 +1,3 @@
-function toDisable(){
-	function double(btn){
-		btn.disabled=true;
-		}
+function toDisable(btn){
+	btn.disabled=true;
 }
