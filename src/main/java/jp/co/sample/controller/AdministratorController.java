@@ -66,7 +66,7 @@ public class AdministratorController {
 	 * @param model リクエストスコープ
 	 * @return 登録完了画面
 	 */
-	@RequestMapping("/finished")
+	@RequestMapping("/to-finished")
 	public String confirm(@Validated InsertAdministratorForm form, BindingResult result, Model model) {
 		if(result.hasErrors()) {
 			return "administrator/insert";
@@ -85,6 +85,11 @@ public class AdministratorController {
 			}
 		}
 		service.insert(administrator);
+		return "redirect:/finished";
+	}
+	
+	@RequestMapping("/finished")
+	public String finished() {
 		return "/administrator/finished";
 	}
 	
